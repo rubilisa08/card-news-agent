@@ -1,0 +1,7 @@
+node_modules/
+# user data: projects, research results, generated pictures, exports (private)
+data/
+output/
+.env
+*.log
+.claude/settings.local.json
