@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "card-news",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "port": 8765
+    },
+    {
+      "name": "card-news-mock",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start:mock"],
+      "port": 8765
+    }
+  ]
+}
