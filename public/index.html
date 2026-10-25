@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>카드뉴스 에이전트</title>
+  <!-- Card text font. Without internet the card falls back to Malgun Gothic. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top">
+    <a href="#/" class="brand">카드뉴스 에이전트</a>
+    <span id="engine-badge" class="badge"></span>
+  </header>
+  <div id="mock-banner" class="mock-banner" hidden>
+    모의 엔진으로 실행 중입니다. 화면의 후보와 조사 결과는 <strong>실제 검색 결과가 아닌 모의 데이터</strong>입니다.
+  </div>
+  <main id="app"></main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

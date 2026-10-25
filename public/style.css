@@ -1,0 +1,421 @@
+:root {
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --text: #1d1d1f;
+  --muted: #6b6b70;
+  --line: #e2e0d8;
+  --accent: #2346c9;
+  --accent-soft: #e8ecfb;
+  --warn: #9a5b00;
+  --warn-soft: #fff4dd;
+  --danger: #b3261e;
+  --danger-soft: #fdecea;
+  --ok: #1e7a3c;
+  font-family: system-ui, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+* { box-sizing: border-box; }
+body { margin: 0; line-height: 1.55; word-break: keep-all; overflow-wrap: anywhere; }
+a { color: var(--accent); }
+main { max-width: 880px; margin: 0 auto; padding: 16px 16px 80px; }
+
+.top { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.brand { font-weight: 700; color: var(--text); text-decoration: none; }
+.badge { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.badge.mock, .tag.mock { background: var(--warn-soft); color: var(--warn); }
+.tag.err { background: var(--danger); color: #fff; font-weight: 600; }
+.mock-banner { background: var(--warn-soft); color: var(--warn); padding: 10px 16px; font-size: 14px; border-bottom: 1px solid #f1dcae; }
+
+h1 { font-size: 22px; margin: 8px 0 4px; }
+h2 { font-size: 17px; margin: 0 0 12px; }
+.muted { color: var(--muted); font-size: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin: 16px 0; }
+
+form.new { display: flex; gap: 8px; flex-wrap: wrap; }
+input[type=text], textarea, select { font: inherit; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+form.new input[type=text] { flex: 1 1 240px; }
+textarea { width: 100%; min-height: 60px; }
+button { font: inherit; padding: 9px 16px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; }
+button.secondary { background: #fff; color: var(--accent); }
+button.danger { background: #fff; color: var(--danger); border-color: var(--danger); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+
+.meta { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; color: var(--muted); }
+.meta b { color: var(--text); font-weight: 600; }
+
+.run { border-left: 4px solid var(--accent); }
+.run.failed, .run.interrupted { border-left-color: var(--danger); }
+.run.cancelled { border-left-color: var(--muted); }
+.run ol { margin: 8px 0 0; padding-left: 20px; font-size: 14px; color: var(--muted); }
+.run ol li:last-child { color: var(--text); }
+.error { background: var(--danger-soft); color: var(--danger); padding: 10px 12px; border-radius: 8px; margin-top: 8px; font-size: 14px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+
+.question { border: 2px solid var(--accent); }
+.option { display: flex; gap: 10px; align-items: flex-start; padding: 10px; border: 1px solid var(--line); border-radius: 8px; margin: 8px 0; cursor: pointer; }
+.option:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.option input { margin-top: 5px; }
+.option .desc { font-size: 14px; color: var(--muted); }
+.rec { font-size: 12px; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 0 6px; margin-left: 6px; }
+.why { font-size: 14px; background: var(--accent-soft); padding: 8px 10px; border-radius: 8px; }
+
+.cands { list-style: none; padding: 0; margin: 0; }
+.cand { display: flex; gap: 12px; padding: 14px; border: 1px solid var(--line); border-radius: 10px; margin: 10px 0; background: #fff; }
+.cand.checked { border-color: var(--accent); background: var(--accent-soft); }
+.cand input { margin-top: 6px; width: 18px; height: 18px; flex: none; }
+.cand h3 { font-size: 16px; margin: 0 0 4px; }
+.cand p { margin: 4px 0; font-size: 14px; }
+.tag { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; background: #efeee8; color: var(--muted); margin-right: 4px; }
+.unknown { color: var(--warn); }
+.tag.tr-official { background: #e3f3e8; color: var(--ok); font-weight: 600; }
+.tag.tr-major { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.tag.tr-trade { background: #efeee8; color: var(--muted); }
+.tag.tr-unverified { background: var(--warn-soft); color: var(--warn); font-weight: 600; }
+details.held { margin-top: 12px; font-size: 14px; }
+details.held summary { cursor: pointer; color: var(--warn); }
+details.held > ul { padding-left: 18px; }
+details.held > ul > li { margin: 8px 0; }
+.sources { font-size: 13px; margin: 6px 0 0; padding-left: 18px; }
+.label { font-weight: 600; }
+.sticky { position: sticky; bottom: 0; background: var(--surface); border-top: 1px solid var(--line); padding: 12px 16px; margin: 0 -16px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+.projects { list-style: none; padding: 0; }
+.projects li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.plist-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.plist-head h2 { margin: 0; }
+.proj { display: flex; gap: 8px 12px; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; }
+.proj-main { flex: 1 1 260px; min-width: 0; }
+.proj-title { font-weight: 600; }
+.proj-meta { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin-top: 4px; font-size: 13px; }
+.proj-meta .tag { margin-right: 0; }
+.proj-actions { display: flex; gap: 4px; flex-wrap: wrap; }
+.proj-actions button.link { padding: 3px 10px; font-size: 13px; }
+button.link.danger { color: var(--danger); }
+dialog.box input[type=text] { width: 100%; margin-top: 10px; }
+.hooks li { margin: 4px 0; }
+dl.editorial dt { font-weight: 600; margin-top: 8px; }
+dl.editorial dd { margin: 2px 0 0; }
+.notice { font-size: 14px; padding: 10px 12px; border-radius: 8px; background: #efeee8; }
+.formats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 6px 0; }
+.format { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.format.picked { border-color: var(--accent); background: var(--accent-soft); }
+.format h3 { font-size: 15px; margin: 0 0 4px; }
+.format p { margin: 4px 0; font-size: 14px; }
+.structure li { margin: 2px 0; }
+.basis { font-size: 13px; color: var(--muted); margin: 2px 0 6px; padding-left: 18px; }
+.basis.latest { padding-left: 0; color: var(--ok); }
+.excluded li { font-size: 14px; color: var(--muted); }
+.warn { background: var(--warn-soft); color: var(--warn); padding: 8px 12px; border-radius: 8px; font-size: 14px; }
+.warn p { margin: 2px 0; }
+.sb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-top: 12px; }
+.sb-card, .img-card { border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: #fff; }
+.sb-head { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; flex-wrap: wrap; }
+.sb-num { font-weight: 700; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; }
+.sb-headline { font-weight: 700; font-size: 16px; margin: 4px 0; }
+.sb-body { font-size: 14px; margin: 4px 0 8px; }
+.sb-meta { font-size: 13px; color: var(--muted); margin: 4px 0; }
+.sb-meta pre { white-space: pre-wrap; font-size: 12px; }
+.sb-actions { display: grid; gap: 8px; margin-top: 12px; }
+.img-frame { position: relative; aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; background: #efeee8; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; }
+.img-frame img { width: 100%; height: 100%; object-fit: cover; }
+.jumps { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+button.link { background: #fff; color: var(--accent); border-color: var(--line); padding: 5px 12px; font-size: 14px; }
+button.link.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.cands-fold summary { cursor: pointer; color: var(--accent); font-size: 14px; padding: 6px 0; }
+.picked { margin: 6px 0 0; padding-left: 20px; font-size: 14px; }
+.stale-banner { position: sticky; top: 0; z-index: 10; background: var(--danger-soft); color: var(--danger); padding: 10px 16px; font-size: 14px; border-bottom: 1px solid var(--danger); }
+.stale-banner button { margin-left: 8px; padding: 4px 12px; font-size: 14px; }
+dialog.box { border: 1px solid var(--line); border-radius: 12px; padding: 20px; max-width: min(420px, calc(100vw - 32px)); font-size: 15px; }
+dialog.box::backdrop { background: rgba(0,0,0,.35); }
+dialog.box p { margin: 0; }
+dialog.box .row { justify-content: flex-end; }
+/* card text layout: .face is the 1080×1350 card, scaled into .face-wrap */
+.face-wrap { position: relative; overflow: hidden; border-radius: 8px; background: #efeee8; flex: none; }
+.face { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; overflow: hidden; transform-origin: 0 0;
+  font-family: Pretendard, "Pretendard Variable", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; }
+.face-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.face-img.empty { background: repeating-linear-gradient(45deg, #ecebe5 0 24px, #e4e2da 24px 48px); display: flex; align-items: center; justify-content: center; }
+.face-img.empty span { font-size: 40px; font-weight: 700; color: rgba(0,0,0,.5); background: rgba(255,255,255,.85); padding: 16px 36px; border-radius: 999px; }
+
+/* text-only cards (B34): no picture; each design gives the words their own background. */
+.face[data-noimg]:is([data-design=basic], [data-design=soft]) { background: #f7f4ee; }
+.face[data-noimg][data-design=news] .face-fade { display: none; }
+.face[data-noimg][data-design=news] .face-text { top: 50%; transform: translateY(-50%); }
+.face[data-noimg][data-design=news] .face-text::before { content: ""; display: block; width: 96px; height: 8px; border-radius: 4px; background: var(--bright); margin-bottom: 56px; }
+.face[data-noimg][data-design=news] .face-h { font-size: calc(var(--hs) * 1.15); }
+.face[data-noimg][data-design=photo] { background: radial-gradient(110% 80% at 85% 10%, color-mix(in srgb, var(--accent) 30%, #1b1b1d), #0d0d0f 70%); }
+.face[data-noimg][data-design=cinema] { background: linear-gradient(165deg, color-mix(in srgb, var(--ink) 75%, #000), #050608 80%); }
+/* text-only card styles (B35), after the user's three examples. Sizes on the 1080×1350 card. */
+.face .mk { color: inherit; background: linear-gradient(transparent 55%, color-mix(in srgb, var(--accent) 55%, transparent) 55%); }
+.wv { text-decoration: underline wavy #f2ee6b; text-decoration-thickness: 4px; text-underline-offset: .22em; }
+.face-emoji { display: none; }
+.face[data-noimg][data-ts]:not([data-ts=plain]) .face-wash, .face[data-noimg][data-ts]:not([data-ts=plain]) .face-shade, .face[data-noimg][data-ts]:not([data-ts=plain]) .face-text::before,
+.face[data-noimg][data-ts]:not([data-ts=plain]) .face-eyebrow, .face[data-noimg][data-ts]:not([data-ts=plain]) .face-src { display: none; }
+.face[data-noimg][data-ts]:not([data-ts=plain]) .face-text { top: 50%; bottom: auto; transform: translateY(-50%); left: 72px; right: 72px; padding: 0; background: none; }
+
+/* a design's first-line colour (news) does not carry into these styles */
+.face[data-noimg][data-ts]:not([data-ts=plain]) .face-h::first-line { color: #fff; }
+/* keyword strips ("이주의 뉴스"): letter tiles, paper strips with a slight tilt */
+.face[data-noimg][data-ts=strips] { background: #111214; }
+.face[data-noimg][data-ts=strips] .face-text { color: #fff; }
+.face-h.tiles { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 64px; font-size: 46px; line-height: 1; letter-spacing: 0; }
+.tile { display: inline-block; padding: 8px 12px; background: #f2e94e; color: #111; font-weight: 900; border-radius: 4px; transform: rotate(var(--r)) translateY(calc(var(--r) * 1.4px)); }
+.tile.sp { background: none; width: 14px; padding: 0; }
+.face[data-noimg][data-ts=strips] .face-h:not(.tiles) { margin-bottom: 56px; }
+.strips { display: flex; flex-direction: column; align-items: center; gap: 20px; margin: 0; }
+.strip { margin: 0; max-width: 100%; padding: 20px 32px; color: #1d1d1f; font-size: calc(var(--bs) * 1.1); font-weight: 800; letter-spacing: -0.035em; line-height: 1.3;
+  background-color: #efece4; background-image: repeating-linear-gradient(0deg, rgba(0,0,0,.018) 0 2px, transparent 2px 5px);
+  transform: rotate(var(--r)); box-shadow: 0 8px 0 rgba(0,0,0,.28); }
+.strip:nth-child(3n+2) { background-color: #e1e6f0; }
+.strip:nth-child(3n) { background-color: #ece8dc; }
+.strip .mk { background: #f2e94e; }
+
+/* highlighter summary: big title with a hand-drawn circle and wavy line, yellow key phrases */
+.face[data-noimg][data-ts=highlight] { background: #141416; }
+.face[data-noimg][data-ts=highlight] .face-text { color: #fff; }
+.face[data-noimg][data-ts=highlight] .face-h { font-size: calc(var(--hs) * 1.08); font-weight: 900; letter-spacing: -0.045em; line-height: 1.3; }
+.face[data-noimg][data-ts=highlight] .face-h .hl { position: relative; color: inherit; background: none; padding: 0 .06em; }
+.face[data-noimg][data-ts=highlight] .face-h .hl::after { content: ""; position: absolute; inset: -0.16em -0.22em; border: 5px solid #f2ee6b; border-radius: 50%; transform: rotate(-3deg); }
+.face[data-noimg][data-ts=highlight] .face-b { margin-top: 1.2em; color: rgba(255,255,255,.9); font-weight: 500; line-height: 1.62; letter-spacing: -0.02em; }
+.face[data-noimg][data-ts=highlight] .mk { background: none; color: #f2ee6b; font-weight: 700; }
+
+/* poster: one bold colour, a big emoji, quoted title, white summary box */
+.face[data-noimg][data-ts=poster] { background: var(--tone); }
+.face[data-noimg][data-ts=poster] .face-text { text-align: center; color: #fff; }
+.face[data-noimg][data-ts=poster] .face-emoji { display: block; margin-bottom: 44px; font-size: 220px; line-height: 1;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif; filter: drop-shadow(0 18px 30px rgba(0,0,0,.25)); }
+.face[data-noimg][data-ts=poster] .face-h { font-weight: 800; letter-spacing: -0.03em; line-height: 1.3; }
+.face[data-noimg][data-ts=poster] .face-h::before { content: "“"; }
+.face[data-noimg][data-ts=poster] .face-h::after { content: "”"; }
+.face[data-noimg][data-ts=poster] .face-h .hl { color: inherit; background: rgba(0,0,0,.2); padding: 0 .12em; border-radius: .15em; }
+.face[data-noimg][data-ts=poster] .face-b { margin-top: 52px; padding: 40px 48px; background: #fff; color: #1d1d1f; border: 4px solid #1d1d1f; border-radius: 36px;
+  font-weight: 600; line-height: 1.55; text-shadow: none; }
+.face[data-noimg][data-ts=poster] .face-b .mk { background: none; color: var(--tone); font-weight: 800; }
+.lay-noimg { display: flex !important; flex-direction: row; gap: 6px; align-items: center; font-weight: 600; }
+.face-text { position: absolute; left: 80px; right: 80px; word-break: keep-all; overflow-wrap: break-word; }
+.face[data-pos=top] .face-text { top: 96px; }
+.face[data-pos=middle] .face-text { top: 50%; transform: translateY(-50%); }
+.face[data-pos=bottom] .face-text { bottom: 96px; }
+.face[data-align=center] .face-text { text-align: center; }
+.face[data-theme=dark] .face-text { color: #1d1d1f; }
+.face[data-theme=light] .face-text { color: #ffffff; }
+.face:not([data-panel=none]) .face-text { left: 56px; right: 56px; padding: 40px 44px; border-radius: 32px; }
+.face[data-panel=soft][data-theme=dark] .face-text { background: rgba(255,255,255,.78); }
+.face[data-panel=solid][data-theme=dark] .face-text { background: rgba(255,255,255,.96); }
+.face[data-panel=soft][data-theme=light] .face-text { background: rgba(20,24,32,.78); }
+.face[data-panel=solid][data-theme=light] .face-text { background: rgba(20,24,32,.96); }
+.face-h, .face-b { white-space: pre-line; }
+.face-h { margin: 0; font-size: var(--hs); font-weight: 800; line-height: 1.25; letter-spacing: -0.02em; }
+.face-b { margin: .6em 0 0; font-size: var(--bs); font-weight: 500; line-height: 1.5; }
+.face-text.bad { outline: 8px dashed var(--danger); outline-offset: 10px; }
+
+.lay-card { border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin: 12px 0; }
+.lay-grid { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+.lay-form { flex: 1 1 280px; display: grid; gap: 8px; font-size: 14px; }
+.lay-form label { display: grid; gap: 4px; font-weight: 600; }
+.lay-form textarea { min-height: 0; font-weight: 400; }
+.lay-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; }
+.lay-opts select { padding: 6px 8px; font-weight: 400; }
+.lay-opts input[type=range] { width: 100%; }
+.lay-orig { margin: 0; font-size: 13px; color: var(--warn); background: var(--warn-soft); padding: 6px 8px; border-radius: 6px; }
+.issues { list-style: none; margin: 0; padding: 0; font-size: 13px; }
+.issues li { margin: 3px 0; }
+.issues .ok { color: var(--ok); }
+.phone-wrap { margin-top: 12px; }
+.phone { width: 384px; max-width: 100%; margin: 0 auto; padding: 12px; border-radius: 36px; background: #1d1d1f; }
+.phone-screen { width: 360px; max-width: 100%; height: 640px; overflow-y: auto; margin: 0 auto; background: #fff; border-radius: 24px; padding: 8px; display: grid; gap: 8px; align-content: start; }
+.phone-card { cursor: pointer; }
+/* designs (B28). Sizes are on the 1080×1350 card. --ink, --accent, --second come
+   from the storyboard palette. */
+.face-text, .face-page { z-index: 3; }
+.face-eyebrow, .face-bignum, .face-wash { display: none; }
+.face:not([data-design=basic]) .face-eyebrow { display: flex; align-items: center; gap: 18px; margin-bottom: 30px; font-size: 26px; font-weight: 700; letter-spacing: .14em; }
+.face[data-align=center] .face-eyebrow { justify-content: center; }
+.face-src { margin: 30px 0 0; font-size: 22px; font-weight: 500; letter-spacing: .02em; opacity: .55; }
+.face-page { position: absolute; top: 92px; right: 80px; font-size: 26px; font-weight: 700; letter-spacing: .12em; font-variant-numeric: tabular-nums; color: var(--ink); }
+.face-page span { opacity: .4; }
+.face[data-theme=light] .face-page { color: #fff; }
+.face[data-pos=top]:not([data-panel=none]) .face-page { top: 40px; }
+.face .hl { font-style: normal; }
+
+/* news (B30): dark page, brand bar, photo band on top, bold white title below
+   (after the user's "오늘광남" example). */
+.face[data-design=news] { --news-bg: color-mix(in srgb, var(--ink) 55%, #0b0f1a); --bright: color-mix(in srgb, var(--second) 55%, #e6fffb); background: var(--news-bg); }
+/* Shows the picture's own rows 150–790, the band artDirection.ts asks the subject
+   to stay in: 150 / (1350 − 640) = 21.13%. */
+.face[data-design=news] .face-img { inset: 150px 0 auto 0; height: 640px; object-position: 50% 21.13%; }
+.face[data-design=news] .face-fade { display: block; position: absolute; left: 0; right: 0; top: 150px; height: 640px; z-index: 1;
+  background: linear-gradient(to bottom, var(--news-bg) 0, transparent 40px, transparent 76%, var(--news-bg) 100%); }
+.face[data-design=news] .face-brand { display: flex; position: absolute; left: 64px; right: 64px; top: 52px; height: 60px; align-items: center; gap: 18px; z-index: 3; color: #fff; }
+.br-mark { color: var(--bright); font-weight: 900; font-size: 46px; font-style: italic; letter-spacing: -0.12em; }
+.br-name { font-weight: 800; font-size: 40px; letter-spacing: -0.03em; }
+.br-line { flex: 1; height: 2px; background: rgba(255,255,255,.55); }
+.br-num { font-weight: 800; font-size: 40px; font-variant-numeric: tabular-nums; }
+.face[data-design=news] .face-text { top: 830px; left: 64px; right: 64px; color: #fff; }
+.face[data-design=news] .face-h { font-weight: 800; letter-spacing: -0.03em; line-height: 1.24; }
+.face[data-design=news] .face-h::first-line { color: var(--bright); }
+.face[data-design=news] .hl { color: var(--bright); }
+.face[data-design=news] .face-b { color: rgba(255,255,255,.88); font-weight: 400; line-height: 1.6; margin-top: .9em; }
+
+/* photo (B30): the picture fills the card, pressed dark, a short gold line and a
+   white title over it (after the user's "9호선 급행" example). */
+.face[data-design=photo] { background: #111; }
+.face[data-design=photo] .face-shade { display: block; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to bottom, rgba(0,0,0,.62) 0%, rgba(0,0,0,.45) 42%, rgba(0,0,0,.5) 75%, rgba(0,0,0,.72) 100%); }
+.face[data-design=photo] .face-text { top: 200px; left: 72px; right: 150px; color: #fff; text-shadow: 0 2px 14px rgba(0,0,0,.35); }
+.face[data-design=photo] .face-eyebrow { display: flex; margin-bottom: 46px; }
+.eb-gold { display: block; width: 72px; height: 4px; background: color-mix(in srgb, var(--accent) 60%, #e9c46a); }
+.face[data-design=photo] .face-h { font-weight: 600; letter-spacing: -0.02em; line-height: 1.32; }
+.face[data-design=photo] .hl { color: color-mix(in srgb, var(--accent) 55%, #fff3d6); }
+.face[data-design=photo] .face-b { font-weight: 400; line-height: 1.7; margin-top: 1.3em; color: rgba(255,255,255,.92); }
+
+.face-credit { display: none; }
+.face[data-design=news] .face-credit, .face[data-design=photo] .face-credit { display: block; position: absolute; left: 64px; bottom: 44px; margin: 0; z-index: 3;
+  font-size: 22px; letter-spacing: .02em; color: rgba(255,255,255,.62); }
+.face-fade, .face-shade, .face-brand, .face-pill, .face-mark { display: none; }
+
+/* cinema (B33): one film-like photo, darker toward the bottom, two or three short
+   white lines bottom left, a small page chip and brand (the user's poemmag example). */
+.face[data-design=cinema] { background: #111; }
+.face[data-design=cinema] .face-shade { display: block; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to bottom, rgba(0,0,0,.2) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,.1) 52%, rgba(0,0,0,.68) 100%); }
+.face[data-design=cinema] .face-text { left: 72px; right: 120px; bottom: 150px; color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,.45); }
+.face[data-design=cinema] .face-h { font-weight: 600; letter-spacing: -0.02em; line-height: 1.38; }
+.face[data-design=cinema] .hl { color: inherit; font-weight: 800; }
+.face[data-design=cinema] .face-b { font-weight: 400; line-height: 1.6; margin-top: 1em; color: rgba(255,255,255,.88); }
+.face[data-design=cinema] .face-pill { display: block; position: absolute; top: 44px; right: 44px; z-index: 3; padding: 8px 18px; border-radius: 999px;
+  background: rgba(0,0,0,.35); color: #fff; font-size: 24px; font-weight: 600; letter-spacing: .04em; }
+.face[data-design=cinema] .face-mark { display: block; position: absolute; left: 0; right: 0; bottom: 46px; margin: 0; z-index: 3; text-align: center;
+  color: rgba(255,255,255,.75); font-size: 24px; font-weight: 600; letter-spacing: .02em; }
+.face[data-design=cinema] .face-credit { display: block; position: absolute; top: 54px; left: 56px; bottom: auto; margin: 0; z-index: 3;
+  font-size: 20px; color: rgba(255,255,255,.72); }
+
+.pre-design { display: grid; gap: 6px; }
+.pre-design .label { margin: 0; font-size: 14px; }
+.pre-design-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 6px; }
+.pre-design-opts .option { margin: 0; font-size: 14px; }
+.brand-row label { display: flex; gap: 6px; align-items: center; font-size: 14px; font-weight: 600; }
+.brand-row input { padding: 6px 10px; }
+
+/* Light and airy: the text area stays nearly white so the words stand out, and the
+   palette only glows at the top-right and bottom-left corners. multiply tints the
+   picture's light paper but leaves its dark shapes. A full-strength wash was tried
+   and made the text hard to see (user feedback 2026-10-23). */
+.face[data-design=soft] .face-wash { display: block; position: absolute; inset: 0; z-index: 1; mix-blend-mode: multiply;
+  background:
+    radial-gradient(58% 34% at 100% 0%, color-mix(in srgb, var(--second) 34%, white), transparent 72%),
+    radial-gradient(62% 36% at 0% 100%, color-mix(in srgb, var(--accent) 30%, white), transparent 72%),
+    linear-gradient(to bottom, #fff 0%, #fff 38%, color-mix(in srgb, var(--second) 10%, white) 100%); }
+.face[data-design=soft] .face-img { filter: saturate(1.08); }
+.face[data-design=soft] .face-h { font-weight: 800; letter-spacing: -0.03em; line-height: 1.22; }
+.face[data-design=soft] .hl { padding: 0 .1em; border-radius: .22em; color: #fff; background: var(--ink); }
+.face[data-design=soft] .eb-pill { padding: 10px 26px; border-radius: 999px; font-size: 24px; letter-spacing: .06em; color: #fff;
+  background: var(--ink); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+.face[data-design=soft]:not([data-panel=none]) .face-text { backdrop-filter: blur(28px) saturate(1.3); border: 2px solid rgba(255,255,255,.55); box-shadow: 0 30px 80px rgba(0,0,0,.14); }
+
+h3.sub { font-size: 15px; margin: 14px 0 4px; }
+h3.sub .muted { font-weight: 400; font-size: 13px; }
+.design-pick { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 8px 0 4px; }
+.design-opt { display: grid; gap: 6px; padding: 8px; border: 2px solid var(--line); border-radius: 12px; background: #fff; color: var(--text); text-align: left; cursor: pointer; }
+.design-opt[aria-pressed=true] { border-color: var(--accent); background: var(--accent-soft); }
+.design-opt .face-wrap { margin: 0 auto; }
+.design-opt small { color: var(--muted); font-size: 12px; }
+
+/* card change requests and final export */
+.rev-box { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line); display: grid; gap: 6px; font-size: 14px; }
+.rev-box .label { margin: 0; }
+.rev-kinds { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 6px; }
+.rev-kinds .option { margin: 0; }
+.rev-tool { display: flex; gap: 6px; align-items: center; font-size: 13px; }
+.rev-tool select { padding: 4px 8px; }
+.rev-history { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 8px; font-size: 13px; }
+.rev-history li { padding: 8px 10px; border-radius: 8px; background: #faf9f6; border: 1px solid var(--line); }
+.rev-diff { margin-top: 4px; display: grid; gap: 4px; }
+.tag.ok, .tag.st-pass { background: #e3f3e8; color: var(--ok); }
+.tag.st-fail { background: var(--danger); color: #fff; }
+.tag.st-unverified { background: var(--warn-soft); color: var(--warn); font-weight: 600; }
+.notice.ok { background: #e3f3e8; color: var(--ok); }
+.export-files { display: flex; flex-wrap: wrap; gap: 6px; }
+.export-files button { padding: 6px 12px; font-size: 14px; }
+.export-files small { opacity: .7; margin-left: 4px; }
+table.checks { width: 100%; border-collapse: collapse; font-size: 14px; margin: 6px 0; }
+table.checks th, table.checks td { text-align: left; padding: 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.checks td.muted { font-size: 13px; }
+.check-detail { font-size: 13px; margin: 4px 0; }
+.check-detail summary { cursor: pointer; color: var(--accent); }
+.check-detail ul, ul.review { padding-left: 18px; margin: 6px 0; font-size: 13px; }
+ul.review li { margin: 3px 0; }
+
+/* the render page the server pictures as the card PNG */
+body.render-mode { background: transparent; }
+body.render-mode .top, body.render-mode .mock-banner, body.render-mode .stale-banner { display: none; }
+body.render-mode main { max-width: none; padding: 0; margin: 0; }
+body.render-mode .face-wrap { border-radius: 0; }
+.title-zone { position: absolute; left: 0; right: 0; top: 0; height: 40%; border-bottom: 1px dashed rgba(0,0,0,.35); font-size: 11px; color: rgba(0,0,0,.55); padding: 4px 6px; }
+
+/* newspapers the user asked to search every time (B38, B39) */
+details.outlets { margin: 8px 0; font-size: 14px; }
+details.outlets summary { cursor: pointer; }
+details.outlets ul { margin: 6px 0 0; padding-left: 18px; }
+details.outlets li.none { color: var(--muted, #777); }
+
+/* page number on every card, top right and small (B40). Soft keeps its own spot;
+   news shows it in the brand bar, cinema in its chip. */
+.face-page { top: 44px; right: 56px; font-size: 24px; }
+.face[data-design=soft] .face-page { top: 92px; right: 80px; font-size: 26px; }
+.face[data-noimg]:is([data-ts=strips], [data-ts=highlight], [data-ts=poster]) .face-page { color: #fff; }
+.br-num span { opacity: .55; font-weight: 600; }
+
+/* brief poster (B40), after the user's WeatherNext example: cream page, blue label,
+   page number, small kicker, big navy title, short orange bar, body, a small picture
+   in the bottom-right corner, a rule with the source at the foot. */
+.face-label, .face-kicker, .face-bar, .face-foot { display: none; }
+.face[data-design=brief] { --b-ink: color-mix(in srgb, var(--ink) 45%, #18264a); --b-blue: color-mix(in srgb, var(--accent) 15%, #2452d9); background: #f5f2ea; }
+.face[data-design=brief] .face-label { display: block; position: absolute; top: 66px; left: 76px; z-index: 3; color: var(--b-blue);
+  font-size: 24px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.face[data-design=brief] .face-page { top: 66px; right: 76px; font-size: 24px; font-weight: 800; letter-spacing: .14em; color: var(--b-ink); }
+.face[data-design=brief] .face-page span { opacity: 1; }
+.face[data-design=brief] .face-text { top: 172px; left: 76px; right: 76px; color: var(--b-ink); }
+.face[data-design=brief] .face-kicker { display: block; margin: 0 0 30px; font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
+.face[data-design=brief] .face-h { font-size: calc(var(--hs) * 1.1); font-weight: 900; letter-spacing: -0.035em; line-height: 1.2; }
+.face[data-design=brief] .face-bar { display: block; width: 80px; height: 8px; margin: 46px 0 40px; background: #ee7a43; }
+.face[data-design=brief] .face-b { max-width: 740px; margin: 0; font-weight: 500; line-height: 1.62; letter-spacing: -0.02em; }
+.face[data-design=brief] .face-img { inset: auto 0 136px auto; width: 380px; height: 380px; border-top-left-radius: 140px; }
+.face[data-design=brief] .face-img.empty span { font-size: 26px; padding: 10px 20px; }
+.face[data-design=brief] .face-foot { display: flex; justify-content: space-between; position: absolute; left: 76px; right: 76px; bottom: 76px; z-index: 3;
+  padding-top: 18px; border-top: 2px solid var(--b-ink); color: var(--b-ink); font-size: 22px; font-weight: 500; }
+.face[data-noimg][data-design=brief] { background: #f5f2ea; }
+.face[data-noimg][data-design=brief] .face-b { max-width: none; }
+.face[data-noimg][data-ts]:not([data-ts=plain]) :is(.face-label, .face-kicker, .face-bar, .face-foot) { display: none; }
+
+/* all articles found in the period (B43) */
+details.articles { margin: 8px 0; font-size: 14px; }
+details.articles summary { cursor: pointer; }
+details.articles ul { max-height: 420px; overflow-y: auto; margin: 6px 0 0; }
+
+/* "선택할 가치" is read before choosing, so it sits right under the title in a soft
+   accent box; "불확실성" sits below the summary in a quieter amber note (2026-10-24). */
+.cand-value { margin: 10px 0 8px; padding: 10px 14px; border-radius: 10px; background: var(--accent-soft); border-left: 4px solid var(--accent); }
+.cand-value p { margin: 4px 0 0; font-size: 13.5px; font-weight: 500; line-height: 1.6; color: #1b2a63; }
+.cv-label { font-size: 15px; font-weight: 700; color: var(--accent); }
+.cv-label::before { content: "✦ "; }
+.cand-risk { margin: 8px 0 6px; }
+.cand-risk p { margin: 2px 0 0; font-size: 13.5px; line-height: 1.55; color: #6b4300; }
+.cr-label { font-size: 14px; font-weight: 700; color: var(--warn); }
+
+/* elapsed time next to the running step */
+.run-time { font-variant-numeric: tabular-nums; color: var(--accent); font-weight: 600; }
+
+/* cinema fitted to the picture (B49): text on the emptier side; dark ink over a light side */
+.face[data-design=cinema][data-cin=top] .face-text { top: 112px; bottom: auto; }
+.face[data-design=cinema][data-cin=top] .face-shade { background: linear-gradient(to top, rgba(0,0,0,.2) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,.1) 52%, rgba(0,0,0,.68) 100%); }
+.face[data-design=cinema][data-cink=dark] .face-shade { display: none; }
+.face[data-design=cinema][data-cink=dark] .face-text { color: color-mix(in srgb, var(--ink) 70%, #111); text-shadow: none; }
+.face[data-design=cinema][data-cink=dark] .face-b { color: color-mix(in srgb, var(--ink) 80%, #333); }
+.face[data-design=cinema][data-cink=dark] .face-credit { color: rgba(0,0,0,.5); }
+.face[data-design=cinema][data-cink=dark] .face-mark { color: rgba(0,0,0,.55); }
+.face[data-design=cinema][data-cin=top] .face-mark { text-shadow: 0 1px 8px rgba(0,0,0,.35); }
+
+/* drawing tool picked before approval (B50) */
+.pre-tool { margin-top: 10px; }
